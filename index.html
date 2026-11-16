@@ -1,195 +1,269 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trilha 60+</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha 60+</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f9f6;
+            color: #2c3e50;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-<style>
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
 
-body{
-    font-family: Arial, sans-serif;
-    background-color:#e5e5e5;
-    margin:0;
-    padding:20px;
-    text-align:center;
-}
+        h1 {
+            font-size: 2.8rem;
+            color: #1b4332;
+            margin-bottom: 10px;
+        }
 
-.container{
-    max-width:1000px;
-    margin:auto;
-}
+        p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #495057;
+            margin-bottom: 30px;
+        }
 
-.oculto{
-    display:none;
-}
+        .btn-principal {
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
 
-h1{
-    color:#1f4d3a;
-    font-size:4rem;
-}
+        .btn-principal:hover {
+            background-color: #1b4332;
+            transform: scale(1.05);
+        }
 
-h2{
-    color:#1f4d3a;
-}
+        .oculto {
+            display: none;
+            text-align: left;
+            animation: fadeIn 0.5s ease-in-out;
+        }
 
-p{
-    font-size:1.4rem;
-    line-height:1.6;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.btn-principal,
-.btn-acao{
-    background-color:#2f6f52;
-    color:white;
-    border:none;
-    border-radius:40px;
-    padding:15px 30px;
-    font-size:1.1rem;
-    cursor:pointer;
-    margin-top:15px;
-}
+        h2.subtitulo-secao {
+            text-align: center;
+            color: #1b4332;
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
 
-.btn-principal:hover,
-.btn-acao:hover{
-    background-color:#24543d;
-}
+        .departamento-card {
+            background: #e9f5ed;
+            border-left: 8px solid #2d6a4f;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
 
-.departamento-card{
-    background:white;
-    margin:20px auto;
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 3px 8px rgba(0,0,0,0.1);
-}
+        .departamento-card h3 {
+            color: #1b4332;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
 
-.aula-box{
-    background:white;
-    padding:30px;
-    border-radius:20px;
-}
+        .departamento-card p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-</style>
+        .btn-acao {
+            background-color: #1b4332;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 1.15rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn-acao:hover {
+            background-color: #2d6a4f;
+        }
+
+        .btn-voltar {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .btn-voltar:hover {
+            background-color: #5a6268;
+        }
+
+        .aula-box {
+            background: #ffffff;
+            border: 2px solid #2d6a4f;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .aula-box ul {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        /* Estilo do Certificado */
+        .certificado-container {
+            border: 8px double #1b4332;
+            padding: 30px;
+            background: #fffdf5;
+            margin-top: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 14px;
+            font-size: 1.2rem;
+            width: 85%;
+            max-width: 450px;
+            border: 2px solid #2d6a4f;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="container">
+        <!-- TELA INICIAL -->
+        <div id="tela-inicial">
+            <h1>Trilha 60+</h1>
+            <p>Tecnologia em qualquer idade! Um espaço feito especialmente para ajudar você a navegar no mundo digital com facilidade, segurança e autonomia.</p>
+            <button class="btn-principal" onclick="abrirDepartamentos()">Começar a Trilha</button>
+        </div>
 
-    <!-- TELA INICIAL -->
-    <div id="tela-inicial">
+        <!-- TELA DE DEPARTAMENTOS -->
+        <div id="secao-departamentos" class="oculto">
+            <h2 class="subtitulo-secao">Escolha o que você quer aprender hoje:</h2>
+            
+            <div class="departamento-card">
+                <h3>📱 1. O Mundo do WhatsApp</h3>
+                <p>Aprenda a enviar mensagens, mandar áudios e fazer chamadas de vídeo com a família.</p>
+                <button class="btn-acao" onclick="abrirAula('aula-whatsapp')">Acesse aqui para aprender WhatsApp ➔</button>
+            </div>
 
-        <h1>Trilha 60+</h1>
+            <div class="departamento-card">
+                <h3>🔒 2. Segurança na Internet</h3>
+                <p>Dicas simples para reconhecer golpes, proteger suas senhas e navegar sem medo.</p>
+                <button class="btn-acao" onclick="abrirAula('aula-seguranca')">Acesse aqui para ver dicas de Segurança ➔</button>
+            </div>
 
-        <p>
-            Tecnologia em qualquer idade! Um espaço feito especialmente
-            para ajudar você a navegar no mundo digital com facilidade,
-            segurança e autonomia.
-        </p>
+            <div class="departamento-card">
+                <h3>🗺️ 3. Mapas e Localização</h3>
+                <p>Como encontrar endereços e rotas no celular de forma prática.</p>
+                <button class="btn-acao" onclick="abrirAula('aula-mapas')">Acesse aqui para aprender Mapas ➔</button>
+            </div>
 
-        <button class="btn-principal" onclick="abrirDepartamentos()">
-            Começar a Trilha
-        </button>
+            <div class="departamento-card" style="background-color: #d8f3dc; border-left-color: #1b4332;">
+                <h3>🎓 4. Emitir Certificado de Participação</h3>
+                <p>Concluiu os módulos? Insira o seu nome para gerar o seu certificado oficial da Trilha 60+!</p>
+                <button class="btn-acao" style="background-color: #2d6a4f;" onclick="abrirAula('aula-certificado')">Acesse aqui para emitir o Certificado ➔</button>
+            </div>
+        </div>
 
+        <!-- AULA 1: WHATSAPP -->
+        <div id="aula-whatsapp" class="oculto aula-box">
+            <button class="btn-voltar" onclick="voltarDepartamentos()">⬅ Voltar aos departamentos</button>
+            <h2>📱 Como usar o WhatsApp</h2>
+            <ul>
+                <li><strong>Enviar mensagem de texto:</strong> Toque na conversa da pessoa, escreva na barra branca em baixo e toque no botão verde com uma seta.</li>
+                <li><strong>Enviar áudio:</strong> Segure o dedo no símbolo do microfone verde enquanto fala e solte para enviar.</li>
+                <li><strong>Chamada de vídeo:</strong> Abra a conversa com a pessoa e toque no desenho da câmara de filmar no canto superior direito.</li>
+            </ul>
+        </div>
+
+        <!-- AULA 2: SEGURANÇA -->
+        <div id="aula-seguranca" class="oculto aula-box">
+            <button class="btn-voltar" onclick="voltarDepartamentos()">⬅ Voltar aos departamentos</button>
+            <h2>🔒 Dicas de Segurança Digital</h2>
+            <ul>
+                <li><strong>Desconfie de links estranhos:</strong> Nunca clique em links enviados por desconhecidos prometendo prémios ou dinheiro fácil.</li>
+                <li><strong>Pedidos de dinheiro:</strong> Se um familiar pedir dinheiro por mensagem com número novo, ligue para o número antigo dele antes para confirmar.</li>
+                <li><strong>Senhas seguras:</strong> Nunca partilhe os seus códigos de verificação (SMS) com ninguém.</li>
+            </ul>
+        </div>
+
+        <!-- AULA 3: MAPAS -->
+        <div id="aula-mapas" class="oculto aula-box">
+            <button class="btn-voltar" onclick="voltarDepartamentos()">⬅ Voltar aos departamentos</button>
+            <h2>🗺️ Como usar Mapas no Celular</h2>
+            <ul>
+                <li><strong>Procurar um endereço:</strong> Abra o aplicativo Google Maps, toque na barra "Pesquise aqui" no topo e escreva o nome da rua ou do local.</li>
+                <li><strong>Ver o caminho:</strong> Toque no botão azul escrito "Rotas" para ver o trajeto a pé, de carro ou de transporte público.</li>
+            </ul>
+        </div>
+
+        <!-- CERTIFICADO -->
+        <div id="aula-certificado" class="oculto aula-box">
+            <button class="btn-voltar" onclick="voltarDepartamentos()">⬅ Voltar aos departamentos</button>
+            <h2>🎓 O seu Certificado de Participação</h2>
+            <p>Parabéns por completar a Trilha 60+! Digite o seu nome completo abaixo:</p>
+            
+            <div style="margin: 20px 0;">
+                <input type="text" id="nome-participante" placeholder="Ex: Maria da Silva">
+                <br>
+                <button class="btn-principal" style="font-size: 1.1rem; padding: 12px 25px;" onclick="gerarCertificado()">Gerar Certificado</button>
+            </div>
+
+            <!-- Caixa visual do Certificado -->
+            <div id="caixa-certificado" style="display: none;" class="certificado-container">
+                <h3 style="color: #1b4332; font-size: 2.2rem; margin-bottom: 5px;">Certificado de Conclusão</h3>
+                <p style="font-size: 1.2rem; color: #555; margin-top: 0;">Certificamos com muito orgulho que</p>
+                <h1 id="nome-impresso" style="color: #2d6a4f; font-size: 2.5rem; margin: 15px 0; border-bottom: 2px solid #2d6a4f; display: inline-block; padding-bottom: 5px;">[Nome]</h1>
+                <p style="font-size: 1.25rem; line-height: 1.6; color: #333; margin: 20px 0;">
+                    concluiu com sucesso a jornada educativa do projeto extensionista <strong>Trilha 60+</strong>, promovendo a inclusão digital, autonomia e segurança tecnológica.
+                </p>
+                <div style="margin-top: 40px; display: flex; justify-content: space-around; font-size: 1rem; color: #555;">
+                    <div>___________________________<br>Projeto Trilha 60+</div>
+                    <div>___________________________<br>Uninter / CRAS</div>
+                </div>
+            </div>
+
+            <br>
+            <button id="btn-imprimir" class="btn-principal" style="display: none; background-color: #1b4332; margin: 20px auto; font-size: 1.1rem; padding: 12px 25px;" onclick="window.print()">🖨️ Imprimir ou Guardar Certificado</button>
+        </div>
     </div>
 
-    <!-- DEPARTAMENTOS -->
-    <div id="secao-departamentos" class="oculto">
-
-        <h2>Escolha o que você quer aprender hoje:</h2>
-
-        <div class="departamento-card">
-            <h3>1. O Mundo do WhatsApp</h3>
-            <p>Aprenda a enviar mensagens, mandar áudios e fazer videochamadas.</p>
-            <button class="btn-acao" onclick="abrirAula('aula-whatsapp')">
-                Aprender WhatsApp →
-            </button>
-        </div>
-
-        <div class="departamento-card">
-            <h3>2. Primeiros Passos no Celular</h3>
-            <p>Aprenda as funções básicas do seu celular.</p>
-            <button class="btn-acao">
-                Aprender Celular →
-            </button>
-        </div>
-
-        <div class="departamento-card">
-            <h3>3. Navegando na Internet</h3>
-            <p>Pesquise informações e acesse sites com segurança.</p>
-            <button class="btn-acao">
-                Aprender Internet →
-            </button>
-        </div>
-
-        <div class="departamento-card">
-            <h3>4. Segurança Digital</h3>
-            <p>Aprenda a evitar golpes e proteger seus dados.</p>
-            <button class="btn-acao">
-                Aprender Segurança →
-            </button>
-        </div>
-
-        <div class="departamento-card">
-            <h3>5. Redes Sociais</h3>
-            <p>Conheça Facebook, Instagram e outras formas de comunicação.</p>
-            <button class="btn-acao">
-                Aprender Redes Sociais →
-            </button>
-        </div>
-
-    </div>
-
-    <!-- AULA WHATSAPP -->
-    <div id="aula-whatsapp" class="oculto">
-
-        <div class="aula-box">
-
-            <h2>📱 O Mundo do WhatsApp</h2>
-
-            <p>
-                O WhatsApp permite enviar mensagens, fotos,
-                vídeos e fazer chamadas com familiares e amigos.
-            </p>
-
-            <h3>Primeiro Passo</h3>
-
-            <p>
-                Abra o aplicativo WhatsApp tocando no ícone verde.
-            </p>
-
-            <button class="btn-principal" onclick="voltar()">
-                ← Voltar
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script>
-
-function abrirDepartamentos(){
-    document.getElementById("tela-inicial").classList.add("oculto");
-    document.getElementById("secao-departamentos").classList.remove("oculto");
-}
-
-function abrirAula(id){
-
-    document.getElementById("secao-departamentos").classList.add("oculto");
-
-    document.getElementById(id).classList.remove("oculto");
-}
-
-function voltar(){
-
-    document.getElementById("aula-whatsapp").classList.add("oculto");
-
-    document.getElementById("secao-departamentos").classList.remove("oculto");
-}
-
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>

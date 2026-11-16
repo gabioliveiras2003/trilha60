@@ -1,14 +1,39 @@
-function mostrarProximaEtapa() {
-    // Pega o elemento da etapa seguinte
-    const etapa = document.getElementById("etapa-seguinte");
-    const botao = document.getElementById("btn-comecar");
+function abrirDepartamentos() {
+    document.getElementById("tela-inicial").style.display = "none";
+    document.getElementById("secao-departamentos").style.display = "block";
+}
 
-    // Mostra a seção oculta
-    etapa.style.display = "block";
+function abrirAula(idDaAula) {
+    document.getElementById("secao-departamentos").style.display = "none";
+    document.getElementById("aula-whatsapp").style.display = "none";
+    document.getElementById("aula-seguranca").style.display = "none";
+    document.getElementById("aula-mapas").style.display = "none";
+    document.getElementById("aula-certificado").style.display = "none";
+    
+    document.getElementById(idDaAula).style.display = "block";
+}
 
-    // Esconde o botão inicial para focar no conteúdo que apareceu
-    botao.style.display = "none";
+function voltarDepartamentos() {
+    document.getElementById("aula-whatsapp").style.display = "none";
+    document.getElementById("aula-seguranca").style.display = "none";
+    document.getElementById("aula-mapas").style.display = "none";
+    document.getElementById("aula-certificado").style.display = "none";
+    
+    document.getElementById("secao-departamentos").style.display = "block";
+}
 
-    // Rrola a página suavemente até o conteúdo novo
-    etapa.scrollIntoView({ behavior: 'smooth' });
+function gerarCertificado() {
+    const nomeInput = document.getElementById("nome-participante").value;
+    
+    if (nomeInput.trim() === "") {
+        alert("Por favor, escreva o seu nome completo antes de gerar o certificado.");
+        return;
+    }
+    
+    // Insere o nome digitado no certificado
+    document.getElementById("nome-impresso").innerText = nomeInput;
+    
+    // Mostra o certificado e o botão de imprimir
+    document.getElementById("caixa-certificado").style.display = "block";
+    document.getElementById("btn-imprimir").style.display = "inline-block";
 }
